@@ -7,3 +7,4 @@ wp config create --allow-root --dbname=$SQL_DATABASE --dbuser=$SQL_USER \
 
 wp core install --allow-root --url=$WP_URL --title=inception --admin_user=$WP_USER --admin_password=$WP_PW --admin_email=$WP_MAIL
 
+/usr/sbin/php-fpm7.3 -F -R

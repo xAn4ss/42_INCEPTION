@@ -20,8 +20,6 @@ services:
     mariadb:
       image: mariadb
       container_name: mariadb
-      env_file:
-        - .env
       build   :
         context: requirements/mariadb
         args:
@@ -42,18 +40,11 @@ services:
         - .env
       build: 
         context: requirements/wordpress
-        args:
-          SQL_DATABASE: ${SQL_DATABASE}
-          SQL_USER: ${SQL_USER}
-          SQL_PASSWORD: ${SQL_PASSWORD}
-          SQL_ROOT_PASSWORD: ${SQL_ROOT_PASSWORD}
       restart : always
       depends_on:
       - mariadb
       volumes:
         - wp-vol:/var/www/html/wordpress
-      ports:
-        - 9000:9000
       networks:
       - inception
   

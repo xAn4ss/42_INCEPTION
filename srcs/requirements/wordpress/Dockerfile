@@ -7,6 +7,6 @@ RUN mv wp-cli.phar /usr/local/bin/wp
 RUN mkdir -p /run/php && mkdir -p /var/www/html/wordpress
 COPY conf/www.conf /etc/php/7.3/fpm/pool.d/
 COPY tools/wp_conf.sh .
-
+EXPOSE 9000
 RUN chmod +x wp_conf.sh
-ENTRYPOINT ["sh","wp_conf.sh","/usr/sbin/php-fpm7.3","-F","-R"]
+ENTRYPOINT ["sh","wp_conf.sh"]

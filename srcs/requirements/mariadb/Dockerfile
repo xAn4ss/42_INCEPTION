@@ -5,4 +5,5 @@ COPY    tools/ /
 ARG     SQL_DATABASE SQL_USER SQL_PASSWORD SQL_ROOT_PASSWORD
 RUN     chmod +x db_conf.sh && ./db_conf.sh
 RUN     service mysql start && mysql < init.sql
+EXPOSE  3306
 ENTRYPOINT    ["mysqld"]
